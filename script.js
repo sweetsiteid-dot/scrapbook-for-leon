@@ -214,49 +214,46 @@ function normalizeAnswer(value) {
 }
 
 function checkAnswers() {
-
     const firstAnswer = normalizeAnswer(answer1.value);
     const secondAnswer = normalizeAnswer(answer2.value);
 
     if (!firstAnswer || !secondAnswer) {
-
-        quizResult.style.color = "#777780";
-
         quizResult.textContent =
             "Fill in both little answers first. 🤍";
-
+        quizResult.style.color = "#777780";
         return;
-
     }
 
-    if (
-        firstAnswer === QUIZ_ANSWER_1 &&
-        secondAnswer === QUIZ_ANSWER_2
-    ) {
+    const correctFirst =
+        firstAnswer === "forever, just us";
 
+    const correctSecond = [
+        "8 oktober 2026",
+        "08 oktober 2026",
+        "october 8, 2026",
+        "october 8 2026",
+        "8 october 2026",
+        "08 october 2026",
+        "8th october 2026",
+        "october 8th, 2026"
+    ].includes(secondAnswer);
+
+    if (correctFirst && correctSecond) {
         quizResult.style.color = "#62626c";
-
         quizResult.textContent =
-            "Forever, just us";
+            "You remembered, my favorite person. ♡";
 
         setTimeout(() => {
-
             specialMemory.scrollIntoView({
                 behavior: "smooth",
                 block: "center"
             });
-
         }, 700);
-
     } else {
-
         quizResult.style.color = "#85858e";
-
         quizResult.textContent =
-            "8 Oktober 2026";
-
+            "Almost there, take another little guess. 🤍";
     }
-
 }
 
 checkQuiz.addEventListener("click", checkAnswers);

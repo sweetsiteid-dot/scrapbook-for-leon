@@ -217,17 +217,26 @@ function checkAnswers() {
     const firstAnswer = normalizeAnswer(answer1.value);
     const secondAnswer = normalizeAnswer(answer2.value);
 
+    // Reset previous feedback.
+    quizResult.classList.remove(
+        "show",
+        "correct",
+        "incorrect"
+    );
+
     if (!firstAnswer || !secondAnswer) {
         quizResult.textContent =
-            "Fill in both little answers first. 🤍";
-        quizResult.style.color = "#777780";
+            "♡ Please answer both questions first.";
+
+        quizResult.classList.add("show", "incorrect");
+
         return;
     }
 
     const correctFirst =
         firstAnswer === "forever, just us";
 
-    const correctSecond = [
+    const validDates = [
         "8 oktober 2026",
         "08 oktober 2026",
         "october 8, 2026",
@@ -236,24 +245,48 @@ function checkAnswers() {
         "08 october 2026",
         "8th october 2026",
         "october 8th, 2026"
-    ].includes(secondAnswer);
+    ];
+
+    const correctSecond = validDates.includes(secondAnswer);
 
     if (correctFirst && correctSecond) {
-        quizResult.style.color = "#62626c";
-        quizResult.textContent =
-            "You remembered, my favorite person. ♡";
+        quizResult.innerHTML =
+            "♡ <strong>Both answers are correct!</strong><br>" +
+            "You remembered, my favorite person.<br>" +
+            "<span>Our little memory is now unlocked.</span>";
+
+        quizResult.classList.add("show", "correct");
 
         setTimeout(() => {
             specialMemory.scrollIntoView({
                 behavior: "smooth",
                 block: "center"
             });
-        }, 700);
+        }, 1000);
+
     } else {
-        quizResult.style.color = "#85858e";
-        quizResult.textContent =
-            "Almost there, take another little guess. 🤍";
+        let message = "";
+
+        if (!correctFirst && !correctSecond) {
+            message = "Not quite yet. Both answers need a little check. 🤍";
+        } else if (!correctFirst) {
+            message = "Almost! Take another look at your first answer. ♡";
+        } else {
+            message = "One more try! Check the date in your second answer. 🩶";
+        }
+
+        quizResult.textContent = message;
+
+        quizResult.classList.add("show", "incorrect");
     }
+
+    // Make the feedback visible on mobile screens.
+    setTimeout(() => {
+        quizResult.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+        });
+    }, 100);
 }
 
 checkQuiz.addEventListener("click", checkAnswers);

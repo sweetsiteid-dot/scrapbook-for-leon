@@ -253,7 +253,7 @@ function checkAnswers() {
         quizResult.style.color = "#85858e";
 
         quizResult.textContent =
-            "Almost there, take another little guess. 🤍";
+            "8 oktober 2026";
 
     }
 

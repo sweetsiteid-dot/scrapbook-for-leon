@@ -2104,3 +2104,56 @@ input:focus-visible,
         transition-duration: 0.01ms !important;
     }
 }
+
+/* =========================
+   QUIZ FEEDBACK
+========================= */
+
+#quizResult {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 20px 0;
+    padding: 16px;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.7;
+    background: #eeeeF1;
+    border: 1px solid #dedee4;
+    color: #55555f;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease,
+                transform 0.3s ease,
+                visibility 0.3s ease;
+}
+
+#quizResult.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#quizResult.correct {
+    background: #e8e9ed;
+    border-color: #b8bac5;
+    color: #454651;
+}
+
+#quizResult.incorrect {
+    background: #f3eeee;
+    border-color: #d9caca;
+    color: #795d65;
+}
+
+#checkQuiz {
+    cursor: pointer;
+    transition: transform 0.2s ease,
+                opacity 0.2s ease;
+}
+
+#checkQuiz:active {
+    transform: scale(0.98);
+}

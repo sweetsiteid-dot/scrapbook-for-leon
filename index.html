@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#77777d">
+    <meta name="description" content="A little mensiversary scrapbook made by Bryson for Leon.">
+
+    <title>Our Scrapbook | Bryson & Leon</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND MUSIC -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="magnolia-celebration.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- LOADING SCREEN -->
+    <div id="loader">
+        <div class="loader-book"></div>
+        <p>Preparing our little universe...</p>
+    </div>
+
+    <!-- SECRET PIN SCREEN -->
+    <section id="pinScreen">
+        <div class="pin-card">
+
+            <div class="pin-decoration">♡</div>
+
+            <h1>For Leon,</h1>
+
+            <h2>A Little Place Made Just For You</h2>
+
+            <p>
+                Somewhere between our memories
+                and little things I never get tired of.
+                <br>
+                Enter our secret code to continue.
+            </p>
+
+            <input
+                type="password"
+                id="pinInput"
+                maxlength="4"
+                inputmode="numeric"
+                placeholder="••••"
+                autocomplete="off"
+                aria-label="Enter secret PIN"
+            >
+
+            <button id="unlockBtn">
+                Unlock Our Story ♡
+            </button>
+
+            <p id="pinError" role="status"></p>
+
+            <span class="pin-footer">made with love by Bryson</span>
+
+        </div>
+    </section>
+
+    <!-- MAIN WEBSITE -->
+    <div id="website">
+
+        <!-- CHAPTER 1: HERO COVER -->
+        <section class="hero">
+
+            <div class="floating-stars"></div>
+
+            <div class="hero-content">
+
+                <span class="badge">
+                    A LITTLE MENSIVERSARY SCRAPBOOK
+                </span>
+
+                <p class="hero-small">a story written by two hearts</p>
+
+                <h1>
+                    Bryson
+                    <span>♡</span>
+                    Leon
+                </h1>
+
+                <p>
+                    Different days, countless little moments,
+                    <br>
+                    and a story I'm always happy to be part of.
+                </p>
+
+                <button id="openBookBtn">
+                    Open Our Story 📖
+                </button>
+
+                <div class="hero-bottom">
+                    <span>OUR LITTLE UNIVERSE</span>
+                    <span>EST. WITH LOVE ♡</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SCRAPBOOK CONTENT -->
+        <main id="scrapbook">
+
+            <!-- CHAPTER 2: OUR STORY -->
+            <section class="chapter intro">
+
+                <div class="paper-card">
+
+                    <span class="chapter-number">01 — THE BEGINNING</span>
+
+                    <h2>Our Little Story</h2>
+
+                    <p>
+                        Hi, Leon. Welcome to our little corner
+                        of the universe. ♡
+                    </p>
+
+                    <p>
+                        I made this tiny scrapbook for you,
+                        filled with little memories, sweet words,
+                        and pieces of a story that means
+                        more to me than you know.
+                    </p>
+
+                    <p>
+                        It may just be a simple website,
+                        but every little detail is here
+                        for one reason: to make you smile.
+                    </p>
+
+                    <p>
+                        So take your time, enjoy every page,
+                        and remember that this little place
+                        will always have your name on it.
+                    </p>
+
+                    <span class="handwritten">
+                        this one's for you, Leon. 🩶
+                    </span>
+
+                </div>
+
+                <div class="cover-photo">
+                    <img src="foto1.jpg" alt="Our first scrapbook memory">
+                    <span class="photo-caption">a little piece of us</span>
+                </div>
+
+            </section>
+
+            <!-- CHAPTER 3: POLAROID MEMORIES -->
+            <section class="chapter memories">
+
+                <span class="chapter-number">02 — LITTLE THINGS</span>
+
+                <h2 class="section-title">
+                    Little Moments 📸
+                </h2>
+
+                <p class="section-description">
+                    Some moments are small,
+                    but the feelings they leave are not.
+                </p>
+
+                <div class="polaroid-grid">
+
+                    <div class="polaroid rotate-left">
+                        <div class="tape blue"></div>
+                        <img src="foto2.jpg" alt="Memory number two">
+                        <span>our favorite little moment</span>
+                    </div>
+
+                    <div class="polaroid rotate-right">
+                        <div class="tape pink"></div>
+                        <img src="foto3.jpg" alt="Memory number three">
+                        <span>you make life sweeter</span>
+                    </div>
+
+                    <div class="polaroid rotate-left">
+                        <div class="tape blue"></div>
+                        <img src="foto4.jpg" alt="Memory number four">
+                        <span>a day worth remembering</span>
+                    </div>
+
+                    <div class="polaroid rotate-right">
+                        <div class="tape pink"></div>
+                        <img src="foto5.jpg" alt="Memory number five">
+                        <span>my favorite kind of memory</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- CHAPTER 4: LOVE LETTER -->
+            <section class="chapter letter-section">
+
+                <span class="chapter-number">03 — WORDS FROM MY HEART</span>
+
+                <h2 class="section-title">
+                    A Letter For You 💌
+                </h2>
+
+                <p class="section-description">
+                    A few things I want you to know.
+                </p>
+
+                <div class="envelope-container">
+
+                    <div id="openLetter" class="envelope">
+                        <div class="envelope-front">
+                            <span>Open when you're ready</span>
+                            <strong>For Leon, with love ♡</strong>
+                        </div>
+                    </div>
+
+                    <div id="letterPaper" class="letter-paper">
+
+                        <h3>Happy Mensiversary, Leon.</h3>
+
+                        <p>
+                            Hey, you. Happy mensive to us. 🩶
+                        </p>
+
+                        <p>
+                            Sometimes I think about how the smallest
+                            things can turn into something meaningful.
+                            A simple conversation, a random laugh,
+                            or just knowing that you're part of my days.
+                            Somehow, those little things become memories
+                            I want to keep.
+                        </p>
+
+                        <p>
+                            Thank you for being here and for becoming
+                            a special part of my story. Aku mungkin
+                            nggak selalu punya kata-kata yang sempurna,
+                            but I hope you can feel how much
+                            I appreciate having you around.
+                        </p>
+
+                        <p>
+                            I know that not every day will be perfect,
+                            and that's okay. We don't need a perfect
+                            story. I just hope we can keep learning,
+                            understanding each other, and making
+                            more beautiful memories along the way.
+                        </p>
+
+                        <p>
+                            If there's one thing I want you to remember,
+                            it's this: you matter, your presence matters,
+                            and the little things we share mean something
+                            to me.
+                        </p>
+
+                        <p>
+                            Happy mensiversary, Leon.
+                            Here's to more chapters, more silly moments,
+                            and more reasons to smile.
+                        </p>
+
+                        <p>
+                            I'm glad our paths crossed.
+                            And for this chapter, I'm happy
+                            that it's you.
+                        </p>
+
+                        <span class="letter-signature">
+                            With love, always ♡
+                            <br>
+                            — Bryson
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- CHAPTER 5: FILM ROLL -->
+            <section class="chapter film-section">
+
+                <span class="chapter-number">04 — THROUGH THE LENS</span>
+
+                <h2 class="section-title">
+                    Our Film Roll 🎞️
+                </h2>
+
+                <p class="section-description">
+                    Little frames, endless things to remember.
+                </p>
+
+                <div class="film-roll">
+
+                    <div class="film-frame">
+                        <img src="foto6.jpg" alt="Film memory six">
+                    </div>
+
+                    <div class="film-frame">
+                        <img src="foto7.jpg" alt="Film memory seven">
+                    </div>
+
+                    <div class="film-frame">
+                        <img src="foto8.jpg" alt="Film memory eight">
+                    </div>
+
+                </div>
+
+                <p class="film-caption">
+                    If only pictures could tell every story behind them.
+                </p>
+
+            </section>
+
+            <!-- CHAPTER 6: MEMORY QUIZ -->
+            <section class="chapter quiz-section">
+
+                <span class="chapter-number">05 — JUST BETWEEN US</span>
+
+                <h2 class="section-title">
+                    How Well Do You Know Us? 🫶
+                </h2>
+
+                <p class="section-description">
+                    Let's see if you can unlock the next little surprise.
+                </p>
+
+                <div class="quiz-box">
+
+                    <div class="question">
+
+                        <label for="answer1">
+                            01. Who made this little scrapbook
+                            especially for Leon?
+                        </label>
+
+                        <input
+                            type="text"
+                            id="answer1"
+                            placeholder="You should know this one..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                    <div class="question">
+
+                        <label for="answer2">
+                            02. What's the one thing Bryson wishes
+                            for the two of you?
+                        </label>
+
+                        <input
+                            type="text"
+                            id="answer2"
+                            placeholder="A little hint: something we all want..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                    <button id="checkQuiz">
+                        Unlock Our Special Memory ✨
+                    </button>
+
+                    <p id="quizResult" role="status"></p>
+
+                </div>
+
+            </section>
+
+            <!-- CHAPTER 7: SPECIAL MEMORY -->
+            <section id="specialMemory" class="chapter special-memory">
+
+                <span class="chapter-number">06 — JUST FOR YOU</span>
+
+                <h2 class="section-title">
+                    One More Little Surprise 🩶
+                </h2>
+
+                <p class="section-description">
+                    Some memories deserve a special reveal.
+                </p>
+
+                <div class="memory-reveal">
+
+                    <div class="blur-photo">
+                        <img
+                            id="specialPhoto"
+                            src="foto9.jpg"
+                            alt="A special memory of us"
+                        >
+                    </div>
+
+                    <button id="revealBtn">
+                        Reveal This Memory ✨
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- CHAPTER 8: TIME COUNTER -->
+            <section class="chapter counter-section">
+
+                <span class="chapter-number">07 — EVERY SECOND COUNTS</span>
+
+                <h2 class="section-title">
+                    Time With You ⏳
+                </h2>
+
+                <p class="section-description">
+                    Every second becomes another part of our story.
+                </p>
+
+                <div class="counter-card">
+
+                    <div class="counter-item">
+                        <h3 id="days">0</h3>
+                        <span>Days</span>
+                    </div>
+
+                    <div class="counter-item">
+                        <h3 id="hours">0</h3>
+                        <span>Hours</span>
+                    </div>
+
+                    <div class="counter-item">
+                        <h3 id="minutes">0</h3>
+                        <span>Minutes</span>
+                    </div>
+
+                </div>
+
+                <p class="counter-note">
+                    And hopefully, many more memories to come. ♡
+                </p>
+
+            </section>
+
+            <!-- CHAPTER 9: FINAL PHOTO -->
+            <section class="chapter ending-photo">
+
+                <span class="chapter-number">08 — A FRAME TO KEEP</span>
+
+                <div class="final-card">
+
+                    <img src="foto10.jpg" alt="Our tenth special memory">
+
+                    <div class="final-card-content">
+
+                        <span class="mini-label">MY FAVORITE CHAPTER</span>
+
+                        <h2>
+                            You Make This Story Special
+                        </h2>
+
+                        <p>
+                            Out of all the little things life brings,
+                            I'm grateful that our paths crossed.
+                            Here's one more picture to keep,
+                            and a thousand more moments to look forward to.
+                        </p>
+
+                        <span class="handwritten">
+                            a memory I'll keep close ♡
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- CHAPTER 10: SECRET MESSAGE -->
+            <section class="chapter secret-section">
+
+                <span class="chapter-number">09 — A TINY SECRET</span>
+
+                <h2 class="section-title">
+                    A Hidden Message 🌟
+                </h2>
+
+                <p class="section-description">
+                    Five little stars, one special message.
+                    Find them all to reveal what's waiting for you.
+                </p>
+
+                <p id="starProgress">
+                    Find all the stars (0/5)
+                </p>
+
+                <div class="stars-box">
+
+                    <div class="star secret-star" role="button" tabindex="0" aria-label="Star one">⭐</div>
+                    <div class="star secret-star" role="button" tabindex="0" aria-label="Star two">⭐</div>
+                    <div class="star secret-star" role="button" tabindex="0" aria-label="Star three">⭐</div>
+                    <div class="star secret-star" role="button" tabindex="0" aria-label="Star four">⭐</div>
+                    <div class="star secret-star" role="button" tabindex="0" aria-label="Star five">⭐</div>
+
+                </div>
+
+                <div id="secretMessage">
+
+                    <p>
+                        Leon, wherever life takes us,
+                        I hope we keep finding little reasons
+                        to be happy, to laugh, and to appreciate
+                        the moments we get to share.
+                    </p>
+
+                    <p>
+                        You don't have to be perfect to be special.
+                        Sometimes, simply being yourself
+                        is already enough to make a moment meaningful.
+                    </p>
+
+                    <h3>Always a special part of my story. ♡</h3>
+
+                    <span>— Bryson 🩶</span>
+
+                </div>
+
+            </section>
+
+            <!-- FINAL CHAPTER -->
+            <section class="chapter ending">
+
+                <div class="ending-card">
+
+                    <span class="mini-label">THE END OF THIS PAGE</span>
+
+                    <h2>
+                        Happy Mensiversary,
+                        <span>Leon ♡</span>
+                    </h2>
+
+                    <p>
+                        Thank you for being part of this little story.
+                        I hope this scrapbook makes you smile,
+                        even if it's just for a moment.
+                    </p>
+
+                    <p>
+                        This may be the last page of this scrapbook,
+                        but there's still so much life left to live
+                        and so many little memories waiting to happen.
+                    </p>
+
+                    <p class="handwritten">
+                        From Bryson, with love. 🩶
+                    </p>
+
+                    <button id="replayBtn">
+                        Read Our Story Again 📖
+                    </button>
+
+                    <div class="ending-decoration">♡ · ⋆ · ♡</div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <p>MADE WITH LOVE BY BRYSON FOR LEON</p>
+            <span>our little universe · forever in memories ♡</span>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+                  </html>

@@ -323,59 +323,39 @@
             </section>
 
             <!-- CHAPTER 6: MEMORY QUIZ -->
-            <section class="chapter quiz-section">
+            <section class="quiz-section" id="quiz">
+    <p class="section-subtitle">A LITTLE GAME FOR US</p>
+    <h2>How Well Do You Know Our Story? ♡</h2>
+    <p class="section-description">
+        Two little questions, one beautiful story.
+        Let's see if you remember.
+    </p>
 
-                <span class="chapter-number">05 — JUST BETWEEN US</span>
+                <div class="question">
+    <p>01. Who created this little universe for you?</p>
+    <input
+        type="text"
+        id="answer1"
+        placeholder="a name close to your heart..."
+        autocomplete="off"
+    />
+</div>
 
-                <h2 class="section-title">
-                    How Well Do You Know Us? 🫶
-                </h2>
+<div class="question">
+    <p>02. What do you wish for our little story?</p>
+    <input
+        type="text"
+        id="answer2"
+        placeholder="three little words..."
+        autocomplete="off"
+    />
+</div>
 
-                <p class="section-description">
-                    Let's see if you can unlock the next little surprise.
-                </p>
+<button id="checkQuiz" type="button">
+    Unlock Our Memory ♡
+</button>
 
-                <div class="quiz-box">
-
-                    <div class="question">
-
-                        <label for="answer1">
-                            01. Who made this little scrapbook
-                            especially for Leon?
-                        </label>
-
-                        <input
-                            type="text"
-                            id="answer1"
-                            placeholder="You should know this one..."
-                            autocomplete="off"
-                        >
-
-                    </div>
-
-                    <div class="question">
-
-                        <label for="answer2">
-                            02. What's the one thing Bryson wishes
-                            for the two of you?
-                        </label>
-
-                        <input
-                            type="text"
-                            id="answer2"
-                            placeholder="A little hint: something we all want..."
-                            autocomplete="off"
-                        >
-
-                    </div>
-
-                    <button id="checkQuiz">
-                        Unlock Our Special Memory ✨
-                    </button>
-
-                    <p id="quizResult" role="status"></p>
-
-                </div>
+<p id="quizResult" aria-live="polite"></p>
 
             </section>
 

@@ -1,7 +1,7 @@
 /* ========================================
    BRYSON ♡ LEON
    MENSIVERSARY SCRAPBOOK
-   Theme: Soft Grey & Silver
+   Soft Grey & Silver Edition
 ======================================== */
 
 
@@ -13,13 +13,11 @@ const loader = document.getElementById("loader");
 
 const pinScreen = document.getElementById("pinScreen");
 const website = document.getElementById("website");
-
 const pinInput = document.getElementById("pinInput");
 const unlockBtn = document.getElementById("unlockBtn");
 const pinError = document.getElementById("pinError");
 
 const bgMusic = document.getElementById("bgMusic");
-
 const openBookBtn = document.getElementById("openBookBtn");
 
 const openLetter = document.getElementById("openLetter");
@@ -39,9 +37,7 @@ const hoursElement = document.getElementById("hours");
 const minutesElement = document.getElementById("minutes");
 
 const stars = document.querySelectorAll(".secret-star");
-const starProgress = document.getElementById("starProgress");
 const secretMessage = document.getElementById("secretMessage");
-
 const replayBtn = document.getElementById("replayBtn");
 
 
@@ -49,17 +45,14 @@ const replayBtn = document.getElementById("replayBtn");
    SETTINGS
 ========================= */
 
-// Private access code
 const SECRET_PIN = "0810";
 
-// Quiz answers
 const QUIZ_ANSWER_1 = "bryson";
-const QUIZ_ANSWER_2 = "leon";
+const QUIZ_ANSWER_2 = "forever, just us";
 
-// Relationship starting date
-const START_DATE = new Date("2026-03-03T00:00:00");
+// Relationship anniversary: 8 October 2026
+const START_DATE = new Date("2026-10-08T00:00:00");
 
-// Total secret stars
 const TOTAL_STARS = stars.length;
 
 
@@ -74,7 +67,6 @@ window.addEventListener("load", () => {
         if (!loader) return;
 
         loader.style.opacity = "0";
-        loader.style.visibility = "hidden";
 
         setTimeout(() => {
             loader.style.display = "none";
@@ -99,10 +91,6 @@ function unlockWebsite() {
         pinScreen.style.display = "none";
         website.style.display = "block";
 
-        // Prevent the PIN screen from being submitted again.
-        pinInput.blur();
-
-        // Start the counter after access is granted.
         updateCounter();
 
     } else {
@@ -112,7 +100,6 @@ function unlockWebsite() {
         pinInput.value = "";
         pinInput.focus();
 
-        // Small shake animation for incorrect PIN.
         pinInput.animate(
             [
                 { transform: "translateX(0)" },
@@ -141,7 +128,6 @@ pinInput.addEventListener("keydown", (event) => {
 
 });
 
-// Only allow four numeric digits.
 pinInput.addEventListener("input", () => {
 
     pinInput.value = pinInput.value
@@ -152,24 +138,17 @@ pinInput.addEventListener("input", () => {
 
 
 /* =========================
-   OPEN OUR STORY
+   OPEN OUR STORY + MUSIC
 ========================= */
 
 openBookBtn.addEventListener("click", async () => {
 
-    // Play the selected music after a user interaction.
     if (bgMusic) {
 
         try {
-
             await bgMusic.play();
-
         } catch (error) {
-
-            console.log(
-                "Music playback is unavailable. Tap play again to listen."
-            );
-
+            console.log("Tap play to start the music.");
         }
 
     }
@@ -197,19 +176,13 @@ if (openLetter && letterPaper) {
 
             letterPaper.style.display = "none";
 
-            openLetter.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+            openLetter.setAttribute("aria-expanded", "false");
 
         } else {
 
             letterPaper.style.display = "block";
 
-            openLetter.setAttribute(
-                "aria-expanded",
-                "true"
-            );
+            openLetter.setAttribute("aria-expanded", "true");
 
             setTimeout(() => {
 
@@ -228,10 +201,9 @@ if (openLetter && letterPaper) {
 
 
 /* =========================
-   QUIZ SYSTEM
+   QUIZ
 ========================= */
 
-// Accepts uppercase/lowercase and extra spaces.
 function normalizeAnswer(value) {
 
     return value
@@ -246,12 +218,12 @@ function checkAnswers() {
     const firstAnswer = normalizeAnswer(answer1.value);
     const secondAnswer = normalizeAnswer(answer2.value);
 
-    // Make sure both questions are answered.
     if (!firstAnswer || !secondAnswer) {
 
         quizResult.style.color = "#777780";
+
         quizResult.textContent =
-            "Answer both questions first, okay? 🩶";
+            "Fill in both little answers first. 🤍";
 
         return;
 
@@ -265,9 +237,8 @@ function checkAnswers() {
         quizResult.style.color = "#62626c";
 
         quizResult.textContent =
-            "Perfect! You know your story well. Memory unlocked! 🤍";
+            "You remembered, my favorite person. ♡";
 
-        // Scroll to the hidden photo.
         setTimeout(() => {
 
             specialMemory.scrollIntoView({
@@ -282,7 +253,7 @@ function checkAnswers() {
         quizResult.style.color = "#85858e";
 
         quizResult.textContent =
-            "Not quite yet. Give it another try, Leon! 🥹";
+            "Almost there, take another little guess. 🤍";
 
     }
 
@@ -290,7 +261,6 @@ function checkAnswers() {
 
 checkQuiz.addEventListener("click", checkAnswers);
 
-// Allow the quiz to be submitted using Enter.
 [answer1, answer2].forEach((input) => {
 
     input.addEventListener("keydown", (event) => {
@@ -315,11 +285,7 @@ if (revealBtn && specialPhoto) {
         specialPhoto.classList.add("show");
 
         revealBtn.textContent = "Memory Revealed 🤍";
-
         revealBtn.disabled = true;
-
-        revealBtn.style.opacity = "0.8";
-        revealBtn.style.cursor = "default";
 
     });
 
@@ -334,35 +300,25 @@ function updateCounter() {
 
     const now = new Date();
 
-    let difference = now.getTime() - START_DATE.getTime();
-
-    // Avoid negative values if the date is changed.
-    difference = Math.max(0, difference);
-
-    const millisecondsPerSecond = 1000;
-    const secondsPerMinute = 60;
-    const minutesPerHour = 60;
-    const hoursPerDay = 24;
-
-    const totalSeconds = Math.floor(
-        difference / millisecondsPerSecond
+    const difference = Math.max(
+        0,
+        now.getTime() - START_DATE.getTime()
     );
 
     const totalMinutes = Math.floor(
-        totalSeconds / secondsPerMinute
+        difference / (1000 * 60)
     );
 
     const totalHours = Math.floor(
-        totalMinutes / minutesPerHour
+        difference / (1000 * 60 * 60)
     );
 
     const days = Math.floor(
-        totalHours / hoursPerDay
+        difference / (1000 * 60 * 60 * 24)
     );
 
-    const hours = totalHours % hoursPerDay;
-
-    const minutes = totalMinutes % minutesPerHour;
+    const hours = totalHours % 24;
+    const minutes = totalMinutes % 60;
 
     daysElement.textContent = days;
     hoursElement.textContent = hours;
@@ -370,10 +326,8 @@ function updateCounter() {
 
 }
 
-// Update the counter immediately.
 updateCounter();
 
-// Refresh the counter every second.
 setInterval(updateCounter, 1000);
 
 
@@ -384,6 +338,8 @@ setInterval(updateCounter, 1000);
 let clickedStars = 0;
 
 function updateStarProgress() {
+
+    const starProgress = document.getElementById("starProgress");
 
     if (starProgress) {
 
@@ -396,28 +352,21 @@ function updateStarProgress() {
 
 stars.forEach((star) => {
 
-    // Make stars keyboard accessible.
     star.setAttribute("role", "button");
     star.setAttribute("tabindex", "0");
-    star.setAttribute("aria-label", "Collect a secret star");
+    star.setAttribute("aria-pressed", "false");
 
     function collectStar() {
 
-        // Do not count the same star twice.
         if (star.classList.contains("collected")) {
             return;
         }
 
-        star.classList.add("collected");
-        star.classList.add("active");
-
+        star.classList.add("collected", "active");
         star.setAttribute("aria-pressed", "true");
 
         clickedStars++;
 
-        updateStarProgress();
-
-        // Small collection animation.
         star.animate(
             [
                 { transform: "scale(1)" },
@@ -430,7 +379,8 @@ stars.forEach((star) => {
             }
         );
 
-        // Reveal the message after collecting all stars.
+        updateStarProgress();
+
         if (clickedStars === TOTAL_STARS) {
 
             secretMessage.style.display = "block";
@@ -452,10 +402,7 @@ stars.forEach((star) => {
 
     star.addEventListener("keydown", (event) => {
 
-        if (
-            event.key === "Enter" ||
-            event.key === " "
-        ) {
+        if (event.key === "Enter" || event.key === " ") {
 
             event.preventDefault();
             collectStar();
@@ -490,22 +437,16 @@ replayBtn.addEventListener("click", () => {
     }
 
     if (revealBtn) {
-
         revealBtn.textContent = "Reveal Memory ✨";
         revealBtn.disabled = false;
-
-        revealBtn.style.opacity = "1";
-        revealBtn.style.cursor = "pointer";
-
     }
 
-    // Reset the quiz.
+    // Reset quiz.
     answer1.value = "";
     answer2.value = "";
-
     quizResult.textContent = "";
 
-    // Reset the secret stars.
+    // Reset secret stars.
     clickedStars = 0;
 
     stars.forEach((star) => {
@@ -526,7 +467,7 @@ replayBtn.addEventListener("click", () => {
         secretMessage.style.display = "none";
     }
 
-    // Return to the beginning of the scrapbook.
+    // Return to the beginning.
     window.scrollTo({
         top: 0,
         behavior: "smooth"

@@ -237,7 +237,7 @@ function checkAnswers() {
         quizResult.style.color = "#62626c";
 
         quizResult.textContent =
-            "You remembered, my favorite person. ♡";
+            "Forever, just us";
 
         setTimeout(() => {
 
@@ -253,7 +253,7 @@ function checkAnswers() {
         quizResult.style.color = "#85858e";
 
         quizResult.textContent =
-            "8 oktober 2026";
+            "8 Oktober 2026";
 
     }
 
